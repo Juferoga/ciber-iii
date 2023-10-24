@@ -1,0 +1,47 @@
+[System]
+Name='ControlPDT1P10'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='e'
+Range=[-2 2]
+NumMFs=3
+MF1='N':'zmf',[-1.77469135802469 1.36]
+MF2='Z':'trimf',[-0.464653488372094 0.186046511627906 0.826246511627906]
+MF3='P':'smf',[-0.966 1.94753086419753]
+
+[Input2]
+Name='de'
+Range=[-3 3]
+NumMFs=3
+MF1='N':'zmf',[-2.76 1.00793650793651]
+MF2='Z':'trimf',[-1.01 0 0.992063492063492]
+MF3='P':'smf',[-0.992063492063491 2.76]
+
+[Output1]
+Name='u'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'trimf',[-1.8 -1 -0.00264550264550267]
+MF2='Z':'trimf',[-0.193 0 0.203703703703704]
+MF3='P':'trimf',[-0.00264550264550267 1 1.8]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1

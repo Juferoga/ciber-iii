@@ -1,0 +1,51 @@
+[System]
+Name='HornoPan'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Temperatura'
+Range=[0 10]
+NumMFs=3
+MF1='Baja':'gaussmf',[1.5 0]
+MF2='Media':'gaussmf',[1.23 5]
+MF3='Alta':'gaussmf',[1.5 10]
+
+[Input2]
+Name='Tiempo'
+Range=[0 10]
+NumMFs=2
+MF1='Poco':'trapmf',[-10 -10 2 3]
+MF2='Suficiente':'trapmf',[7 8 20 20]
+
+[Input3]
+Name='Vapor'
+Range=[0 10]
+NumMFs=2
+MF1='Imperceptible':'gaussmf',[1.5 0]
+MF2='Necesario':'gaussmf',[1.5 10]
+
+[Output1]
+Name='CalidadPan'
+Range=[0 10]
+NumMFs=5
+MF1='Malo':'trimf',[0.0534 1.17 2.337]
+MF2='Regular':'trimf',[1.81 3.07 4.235]
+MF3='Normal':'trimf',[3.72 5.04 6.357]
+MF4='Bueno':'trimf',[5.95 7.11 8.276]
+MF5='Excelente':'trimf',[7.827 8.99 9.98]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 2 1, 1 (1) : 1
+2 2 0, 1 (1) : 1
+3 2 0, 1 (1) : 1
+3 2 2, 1 (1) : 1
